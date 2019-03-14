@@ -1,5 +1,4 @@
 @ECHO OFF
-javac Main.java
-javac MyLogException.java
+javac -encoding UTF-8 Main.java
 java Main
 pause
