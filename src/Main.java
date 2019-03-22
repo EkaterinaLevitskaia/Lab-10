@@ -4,10 +4,9 @@ import java.util.Scanner;
 
 public class Main {
 
-
     public static void firstMethod() {
         try {
-            System.out.println("Попытка деления на ноль\n");
+            System.out.println("РџРѕРїС‹С‚РєР° РґРµР»РµРЅРёСЏ РЅР° РЅРѕР»СЊ\n");
             double a = 10/0;
         }
         catch (ArithmeticException e) {
@@ -17,13 +16,12 @@ public class Main {
 
     public static void secondMethod() {
         try {
-            System.out.println("Попытка выйти за предел массива\n");
+            //System.out.println("РџРѕРїС‹С‚РєР° РІС‹Р№С‚Рё Р·Р° РїСЂРµРґРµР» РјР°СЃСЃРёРІР°\n");
             int[] a = {1,2,3};
             a[5] = 6;
-
-        }
+            }
         catch (ArrayIndexOutOfBoundsException e) {
-            System.out.println("Исключение: выход за предел массива\n");
+            System.out.println("РСЃРєР»СЋС‡РµРЅРёРµ: РІС‹С…РѕРґ Р·Р° РїСЂРµРґРµР» РјР°СЃСЃРёРІР°\n");
         }
     }
 
@@ -35,63 +33,57 @@ public class Main {
                 throw new IllegalAccessException();
             if(numberOfException == 3)
                 throw new KeyException();
-
-        }
+            }
         catch (ArrayIndexOutOfBoundsException e) {
-            System.out.println("Исключение типа 1: " + e + "\n");
+            System.out.println("РСЃРєР»СЋС‡РµРЅРёРµ С‚РёРїР° 1: " + e + "\n");
         }
         catch (IllegalAccessException e) {
-            System.out.println("Исключение типа 2: " + e + "\n");
+            System.out.println("РСЃРєР»СЋС‡РµРЅРёРµ С‚РёРїР° 2: " + e + "\n");
         }
         catch (KeyException e) {
-            System.out.println("Исключение типа 3: " + e + "\n");
+            System.out.println("РСЃРєР»СЋС‡РµРЅРёРµ С‚РёРїР° 3: " + e + "\n");
         }
 
     }
 
     public static void fourthMethod() {
         try {
-            System.out.println("Генерация исключения собственного подкласса\n");
-            throw new MyLogException("Сообщение из MyException", "LOW");
+            System.out.println("Р“РµРЅРµСЂР°С†РёСЏ РёСЃРєР»СЋС‡РµРЅРёСЏ СЃРѕР±СЃС‚РІРµРЅРЅРѕРіРѕ РїРѕРґРєР»Р°СЃСЃР°\n");
+            throw new MyLogException("РЎРѕРѕР±С‰РµРЅРёРµ РёР· MyException", "LOW");
         } catch (MyLogException e) {
             System.out.println(e);
         }
     }
     public static void main(String[] args) {
-//        TASK1
         firstMethod();
-//        TASK2
         secondMethod();
-//        TASK3
-
 
         int num;
         while (true) {
 
-            System.out.print("Введите 1-для вывода ArrayIndexOutOfBoundsException\n" +
-                    "2 - для вывода IllegalAccessException\n" +
-                    "3 для вывода KeyException\n"+
-                    "0 для продолжения работы программы\n");
+            System.out.print("Р’РІРµРґРёС‚Рµ: 1 РґР»СЏ РІС‹РІРѕРґР° ArrayIndexOutOfBoundsException\n" +
+                    "2 РґР»СЏ РІС‹РІРѕРґР° IllegalAccessException\n" +
+                    "3 РґР»СЏ РІС‹РІРѕРґР° KeyException\n"+
+                    "0 РґР»СЏ РіРµРЅРµСЂР°С†РёРё РёСЃРєСЋС‡РµРЅРёСЏ СЃРѕР±СЃС‚РІРµРЅРЅРѕРіРѕ РїРѕРґРєР»Р°СЃСЃР° Рё РІС‹С…РѕРґР° РёР· РїСЂРѕРіСЂР°РјРјС‹\n");
             try {
                 Scanner in = new Scanner(System.in);
                 num = in.nextInt();
                 if(num==0) {
                     break;
                 }
-
                 else
-                    System.out.println("Данный код ошибки не обрабатывается\n");
+                    if(num>3){
+                    System.out.println("Р”Р°РЅРЅС‹Р№ РєРѕРґ РѕС€РёР±РєРё РЅРµ РѕР±СЂР°Р±Р°С‚С‹РІР°РµС‚СЃСЏ\n");}
                 thirdMethod(num);
             }
             catch (InputMismatchException e) {
-                System.out.println("Данный код ошибки не обрабатывается\n");
+                System.out.println("Р”Р°РЅРЅС‹Р№ РєРѕРґ РѕС€РёР±РєРё РЅРµ РѕР±СЂР°Р±Р°С‚С‹РІР°РµС‚СЃСЏ\n");
             }
 
 
         }
 
         thirdMethod(num);
-//        TASK4
         fourthMethod();
     }
 
